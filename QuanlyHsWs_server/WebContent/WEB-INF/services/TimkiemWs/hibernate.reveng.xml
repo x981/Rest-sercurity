@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="Sunshine_final" match-name="BoSP"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietHS"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietHanghoa"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietLop"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietNhapkho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietNhapkhoNB"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietNhaplai"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietXuatkho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="ChitietXuatkhoNB"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Danhmuc"/>
+  <table-filter match-catalog="Sunshine_final" match-name="DiemHS"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Doituong"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Giaidoan"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Giaovien"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Hanghoa"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Hocphi"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Hocsinh"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Kho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Kiemkho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="KieuQuanhe"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Lopdahoc"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Lophoc"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Menu"/>
+  <table-filter match-catalog="Sunshine_final" match-name="MenuCon"/>
+  <table-filter match-catalog="Sunshine_final" match-name="NhaCC"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Nhapkho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="NhapkhoNB"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Nhaplai"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Nhatky"/>
+  <table-filter match-catalog="Sunshine_final" match-name="NhatkyGV"/>
+  <table-filter match-catalog="Sunshine_final" match-name="NhatkyHang"/>
+  <table-filter match-catalog="Sunshine_final" match-name="NhatkyLH"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Nhom"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Phieuthu"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Quanhe"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Quyen"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Quyen_Menu"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Thongkelop"/>
+  <table-filter match-catalog="Sunshine_final" match-name="TonghopNXT"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Tonkho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Users"/>
+  <table-filter match-catalog="Sunshine_final" match-name="Xuatkho"/>
+  <table-filter match-catalog="Sunshine_final" match-name="XuatkhoNB"/>
+  <table-filter match-catalog="Sunshine_final" match-name="sysdiagrams"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="hibernate.connection.password">Nhunglam123</property>
+  <property name="hibernate.connection.url">jdbc:sqlserver://DAVILUIT\SQLEXPRESS:1433;databaseName=Tracnghiem</property>
+  <property name="hibernate.connection.username">sa</property>
+  <property name="hibernate.default_schema">dbo</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <mapping class="entities.Nguoichoi"/>
+  <mapping class="entities.Capdo"/>
+  <mapping class="entities.Cauhoi"/>
+  <mapping class="entities.Diem"/>
+  <mapping class="entities.DiemId"/>
+  <mapping class="entities.Monhoc"/>
+  <mapping class="entities.Sysdiagrams"/>
+ </session-factory>
+</hibernate-configuration>

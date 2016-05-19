@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</head>
+<body ng-app="Ajax" ng-controller="AjaxController">
+
+	<table cellpadding="2" cellspacing="2" border="1">
+		<tr>
+			<td>Name</td>
+			<td>RollNo</td>
+			<td>Percentage</td>
+		</tr>
+		
+		<tr ng-repeat="st in student">
+			<td>{{st.Name}}</td>
+			<td>{{st.RollNo}}</td>
+			<td>{{st.Percentage}}</td>
+		</tr>
+	</table>
+
+<script type="text/javascript">
+	var Ajax = angular.module("Ajax", []);
+	Ajax.controller("AjaxController", function($scope, $http) {
+		var url = "Data.txt";
+		$http.get(url).success(function(response){
+			$scope.student = response;
+		});
+	});
+</script>
+</body>
+</html>

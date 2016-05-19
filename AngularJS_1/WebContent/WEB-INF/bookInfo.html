@@ -1,0 +1,8 @@
+<a href="#/book/{{$index}}"> <img alt="" ng-src="{{info.hinhanh}}">
+	<p class="title">{{info.tensach}}</p>
+</a>
+<p class="price">{{info.gia | currency}}</p>
+<div class="rating">
+	<p class="likes" ng-click="like($index)">{{info.thich}}</p>
+	<p class="dislikes" ng-click="dislike($index)">{{info.khongthich}}</p>
+</div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</head>
+<body ng-app="Validation">
+	<form action="" method="post" name="validate" novalidate>
+		<table>
+			<tr>
+				<td>First name:</td>
+				<td><input type="text" name="firstname" ng-model="firstname"
+					ng-required="true" ng-minlength="5" ng-maxlength="10"></td>
+				<td><span style = "color:red" ng-show = "validate.firstname.$dirty && validate.firstname.$invalid">
+					<span style="color: red;" ng-show="validate.firstname.$error.required">Field is required!</span>
+					<span style="color: red;" ng-show="validate.firstname.$error.minlength">First name require 5 to 10 character!</span>
+					<span style="color: red;" ng-show="validate.firstname.$error.maxlength">First name require 5 to 10 character!</span>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>Last name:</td>
+				<td><input type="text" name="lastname" ng-model="lastname"
+					ng-required="true" ng-minlength="5" ng-maxlength="10"></td>
+				<td><span style = "color:red" ng-show = "validate.lastname.$dirty && validate.lastname.$invalid">
+				<span style="color: red;"
+					ng-show="validate.lastname.$error.required">Field is
+						required!</span> <span style="color: red;"
+					ng-show="validate.lastname.$error.minlength">First name
+						require 5 to 10 character!</span> <span style="color: red;"
+					ng-show="validate.lastname.$error.maxlength">First name
+						require 5 to 10 character!</span>
+						</span></td>
+			</tr>
+			<tr>
+				<td>Phone:</td>
+				<td><input type="number" name="phone" ng-model="phone"
+					ng-required="true"></td>
+				<td><span style="color: red;"
+					ng-show="validate.phone.$error.required">Field is required!</span>
+					<span style="color: red;" ng-show="validate.phone.$error.number">Field
+						must be number!</span></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="email" name="email" ng-model="email"
+					ng-required="true"></td>
+				<td><span style="color: red;"
+					ng-show="validate.email.$error.required">Field is required!</span>
+					<span style="color: red;" ng-show="validate.email.$error.email">Email
+						is invalid!</span></td>
+			</tr>
+			<tr>
+				<td>Age:</td>
+				<td><input type="number" name="age" ng-model="age"
+					ng-required="true"></td>
+				<td><span style="color: red;"
+					ng-show="validate.age.$error.required">Field is required!</span> <span
+					style="color: red;" ng-show="validate.age.$error.email">Email
+						is invalid!</span> <span style="color: red;"
+					ng-show="validate.age.$error.email">Email is invalid!</span></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input type="submit" value="Submit" ng-disabled="validate.$invalid"></td>
+			</tr>
+		</table>
+	</form>
+	<script type="text/javascript">
+		var Validation = angular.module("Validation", []);
+		Validation.controller("ValidationController", function($scope) {
+			
+		});
+
+	</script>
+</body>
+</html>

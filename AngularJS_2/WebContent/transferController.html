@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+	integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+</head>
+<body>
+
+	<div class="container" ng-app="myapp">
+		<div ng-controller="ACtrl">
+			<label>A Controller:</label>
+			<div class="form-group">
+				<label for="broadcastMessage">Input message</label> <input
+					type="text" class="form-control" id="broadcastMessage"
+					placeholder="Enter your message" ng-model="message">
+				<button class="btn btn-primary" ng-click="notify()">Notify</button>
+			</div>
+			Result:
+			<div>{{message}}</div>
+		</div>
+		<div ng-controller="BCtrl">
+			<label>B Controller:</label>
+			<div>{{message}}</div>
+		</div>
+		<div ng-controller="CCtrl">
+			<label>C Controller:</label>
+			<div>{{message}}</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var shareModule = angular.module("shareModule", []);
+		shareModule.factory("shareService", function($rootScope){
+		 var shareService = {}; 
+		 shareService.message = "";   
+		 shareService.broadcastMessage = function(message){
+		  shareService.message = message;
+		  $rootScope.$broadcast("notifyMessageChange");
+		 }
+		 return shareService;
+		});
+		var myApp = angular.module("myapp",["shareModule"]);
+		//service style, probably the simplest one  
+		  
+		myApp.controller("ACtrl", function($scope, shareService){
+		 $scope.message = "";
+		 $scope.notify = function(){
+		  shareService.broadcastMessage($scope.message);
+		 };
+		 $scope.$on("notifyMessageChange", function(){
+		  $scope.message = shareService.message;
+		 });
+		});
+		myApp.controller("BCtrl", function($scope, shareService){
+		 $scope.message = "";
+		 $scope.$on("notifyMessageChange", function(){
+		  $scope.message = shareService.message;
+		 });
+		});
+		myApp.controller("CCtrl", function($scope, shareService){
+		 $scope.message = "";
+		 $scope.$on("notifyMessageChange", function(){
+		  $scope.message = shareService.message;
+		 });
+		});
+	</script>
+</body>
+</html>

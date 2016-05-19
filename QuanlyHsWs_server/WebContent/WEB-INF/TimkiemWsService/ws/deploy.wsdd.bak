@@ -1,0 +1,52 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TimkiemWsService WSDL service -->
+
+  <service name="TimkiemWs" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ws"/>
+      <parameter name="wsdlServiceElement" value="TimkiemWsService"/>
+      <parameter name="schemaQualified" value="http://ws"/>
+      <parameter name="wsdlServicePort" value="TimkiemWs"/>
+      <parameter name="className" value="ws.TimkiemWsSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="TimkiemWs"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="search" qname="operNS:search" xmlns:operNS="http://ws" returnQName="retNS:searchReturn" xmlns:retNS="http://ws" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://ws" returnItemQName="tns:item" xmlns:tns="http://ws" soapAction="" >
+        <parameter qname="pns:tenhs" xmlns:pns="http://ws" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="search"/>
+
+      <typeMapping
+        xmlns:ns="http://ws"
+        qname="ns:>searchResponse"
+        type="java:ws.SearchResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ws"
+        qname="ns:>search"
+        type="java:ws.Search"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://ws"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

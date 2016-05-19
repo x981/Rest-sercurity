@@ -1,0 +1,16 @@
+<div class="container">
+	<h1>{{tieude}}</h1>
+	<div ng-repeat="book in books | filter: bookname" class="col-md-4">
+		<div class="thumbnail">
+			<a href="#/book/{{$index}}"> <img alt=""
+				ng-src="{{book.hinhanh}}">
+				<p class="title">{{book.tensach}}</p>
+			</a>
+			<p class="price">{{book.gia | currency}}</p>
+			<div class="rating">
+				<p class="likes" ng-click="like($index)">{{book.thich}}</p>
+				<p class="dislikes" ng-click="dislike($index)">{{book.khongthich}}</p>
+			</div>
+		</div>
+	</div>
+</div>

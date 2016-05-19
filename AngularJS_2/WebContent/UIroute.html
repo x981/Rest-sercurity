@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+<style type="text/css">
+.navbar {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+</style>
+
+</head>
+<body ng-app="app">
+	<nav class="navbar navbar-default navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="dangnhap">HỌC VUI - VUI HỌC</a>
+		</div>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a ui-sref="dangky"><span
+					class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+			<li><a ui-sref="dangnhap"><span
+					class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+			<li><a ui-sref="tracnghiem"><span
+					class="glyphicon glyphicon-list-alt"></span> Trắc nghiệm</a></li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<div ui-view></div>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("app", ['ui.router']);
+		app.config(function($stateProvider, $urlRouterProvider) {
+			$urlRouterProvider.otherwise('/dangnhap');
+			$stateProvider
+			.state("dangky", {
+				url:"/dangky",
+				templateUrl: "register.html", 
+				data: {requiredLogin: false}
+			})
+			.state("dangnhap", {
+				url:"/dangnhap",
+				templateUrl: "login.html",
+				controller: "LoginController", 
+				data: {requiredLogin: false}
+			})
+			.state("tracnghiem", {
+				url: "/tracnghiem",
+				templateUrl: "tracnghiem.html",
+				data: {requiredLogin: true}
+			})
+		});
+
+		app.run(function($rootScope, $state) {
+			$rootScope.$on("$stateChangeStart", function(event, toState, toParams){
+				var requiredLogin = toState.data.requiredLogin;
+				if (requiredLogin){
+					event.preventDefault();
+					$state.go('dangnhap', {});
+				}
+			});	
+		});
+		
+		app.controller("LoginController", function($scope, $http) {
+			$scope.login = function(){
+				var encodeString = "email=" + this.email + "&pass=" + this.pass;
+				 $http({
+						method: "POST",
+						url: "http://localhost:8080/HocvuiWebservices/rest/user/login",
+						data: encodeString,
+						headers: {'Accept':'application/json', 'Content-Type': 'application/x-www-form-urlencoded'}
+				})
+				.success(function (data, status, headers, config) {
+	            	if (data == ""){
+						$scope.errorMsg = "Email or Password is incorrect!";
+					} else {
+						alert("Login success");
+					}
+	            })
+	            .error(function (data, status, header, config) {
+	                console.log("Data: " + data +
+	                    ", status: " + status +
+	                    ", headers: " + header +
+	                    ", config: " + config);
+	            })
+			};
+		});
+	</script>
+</body>
+</html>

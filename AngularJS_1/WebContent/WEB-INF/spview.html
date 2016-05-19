@@ -1,0 +1,9 @@
+<div class="container">
+	<img alt="" ng-src="{{detail.hinhanh}}">
+	<p class="title">{{detail.tensach}}</p>
+	<p class="price">{{detail.gia | currency}}</p>
+	<div class="rating">
+		<p class="likes" ng-click="like($index)">{{detail.thich}}</p>
+		<p class="dislikes" ng-click="dislike($index)">{{detail.khongthich}}</p>
+	</div>
+</div>

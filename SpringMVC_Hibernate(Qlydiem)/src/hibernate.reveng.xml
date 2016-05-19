@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="Qlydiem" match-name="Diem"/>
+  <table-filter match-catalog="Qlydiem" match-name="Lophoc"/>
+  <table-filter match-catalog="Qlydiem" match-name="Monhoc"/>
+  <table-filter match-catalog="Qlydiem" match-name="Sinhvien"/>
+  <table-filter match-catalog="Qlydiem" match-name="Sinhvien_Monhoc"/>
+  <table-filter match-catalog="Qlydiem" match-name="sysdiagrams"/>
+</hibernate-reverse-engineering>

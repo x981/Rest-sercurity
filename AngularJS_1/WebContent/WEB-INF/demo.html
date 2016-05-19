@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/angular-route.min.js"></script>
+</head>
+<body ng-app="app">
+
+<div ng-controller="controller1">
+	<input type="button" value="Show" ng-click="display1()">
+	<br>
+	{{result1}}
+</div>
+<div ng-controller="controller2">
+	<input type="text" ng-model="full"><input type="button" value="Show" ng-click="display2(full)">
+	<br>
+	{{result2}}
+	
+</div>
+
+<div ng-controller="controller3">
+	<input type="text" ng-model="so"><input type="button" value="show" ng-click="display3(so)">
+	<br>
+	<span ng-show="so.length">Binh phuong: {{bp}}</span>
+	<br>
+	<span ng-show="so.length">
+	Lap phuong: {{lp}}</span>
+</div>
+<div ng-controller="controller4">
+<div>
+	<a href="#/">Home</a> | <a href="#/aboutus">About Us</a> | <a href="#/news">News</a>
+</div>
+<div ng-view></div>
+Copyright @ 2015
+</div>
+
+<script type="text/javascript">
+	var app = angular.module("app", ['ngRoute']);
+
+	app.config(function($routeProvider) {
+		$routeProvider
+			.when('/',{
+				templateUrl:'home.html',
+				controller: 'controller4'
+			})
+			.when('/news',{
+				templateUrl:'news.html',
+				controller: 'newscontroller'
+			})
+			.when('/aboutus',{
+				templateUrl:'aboutus.html',
+				controller: 'aboutuscontroller'
+			});
+	});
+
+	app.service("Myservice", function() {
+		this.hello = function(){
+			return "Hello";
+		};
+
+		this.hi = function(name){
+			return "Hello " + name;
+		};
+	});
+
+	app.service("Tinhtoan", function(){
+		this.nhan = function(a,b){
+			return a*b;
+		};
+	});
+	
+	app.service("Myservice1", function(Tinhtoan){
+		this.binhphuong = function(a){
+			return Tinhtoan.nhan(a,a);
+		};
+	});
+
+	app.service("Myservice2", function(Tinhtoan, Myservice1){
+		this.lapphuong = function(b){
+			return Tinhtoan.nhan(b, Myservice1.binhphuong(b));
+		};
+	});
+	
+	app.controller("controller1",function($scope, Myservice){
+
+		$scope.display1 = function(){
+			$scope.result1 = Myservice.hello();	
+		}
+		
+
+	});
+
+	app.controller("controller2",function($scope, Myservice){
+		$scope.display2 = function(fullname){
+			$scope.result2 = Myservice.hi(fullname);
+		};
+	});
+
+	app.controller("controller3", function($scope, Myservice1, Myservice2){
+		$scope.display3 = function(a){
+			$scope.bp = Myservice1.binhphuong(a);
+			$scope.lp = Myservice2.lapphuong(a);
+		};
+	});
+
+	app.controller('controller4', function($scope){
+		$scope.message = "Trang Home";
+	});
+	
+	app.controller('newscontroller', function($scope){
+		$scope.message = "Trang news";
+	});
+	
+	app.controller('aboutuscontroller', function($scope){
+		$scope.message = "Trang About Us";
+	});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:500,300,700,400"
+	type="text/css">
+<link rel="stylesheet" href="../css/main.css">
+<script type="text/javascript" src="../js/angular.min.js"></script>
+<script type="text/javascript" src="../js/angular-route.min.js"></script>
+</head>
+<body ng-app="MyApp">
+	<div class="header">
+		<div class="container">
+			<h1>Books</h1>
+			<br>
+			Filter book: <input type="text" ng-model="bookname">
+		</div>
+	</div>
+	<div ng-view></div>
+	<div>
+		<a href="#/">Books list</a>
+	</div>
+	<script type="text/javascript" src="../js/app.js"></script>
+	<script type="text/javascript" src="../js/MainController.js"></script>
+	<script type="text/javascript" src="../js/bookInfo.js"></script>
+	<script type="text/javascript" src="../js/DetailController.js""></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+ <session-factory>
+  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="hibernate.connection.password">Nhunglam123</property>
+  <property name="hibernate.connection.url">jdbc:sqlserver://DAVILUIT\SQLEXPRESS:1433;databaseName=Sunshine_final</property>
+  <property name="hibernate.connection.username">sa</property>
+  <property name="hibernate.default_schema">dbo</property>
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.enable_lazy_load_no_trans">true</property>
+  <property name="hibernate.c3p0.min_size">5</property>
+  <property name="hibernate.c3p0.max_size">20</property>
+  <property name="hibernate.c3p0.max_statements">5</property>
+  
+  <property name="hibernate.connection.CharSet">utf8</property>
+  <property name="hibernate.connection.characterEncoding">utf8</property>
+  <property name="hibernate.connection.useUnicode">true</property>
+  
+  <mapping class="entities.BoSp"/>
+  <mapping class="entities.ChitietHs"/>
+  <mapping class="entities.ChitietLop"/>
+  <mapping class="entities.ChitietNhapkho"/>
+  <mapping class="entities.ChitietNhapkhoNb"/>
+  <mapping class="entities.ChitietXuatkho"/>
+  <mapping class="entities.ChitietXuatkhoNb"/>
+  <mapping class="entities.Danhmuc"/>
+  <mapping class="entities.DiemHs"/>
+  <mapping class="entities.DiemHsId"/>
+  <mapping class="entities.Doituong"/>
+  <mapping class="entities.Giaidoan"/>
+  <mapping class="entities.Giaovien"/>
+  <mapping class="entities.Hanghoa"/>
+  <mapping class="entities.Hocphi"/>
+  <mapping class="entities.Hocsinh"/>
+  <mapping class="entities.Kho"/>
+  <mapping class="entities.KieuQuanhe"/>
+  <mapping class="entities.Lopdahoc"/>
+  <mapping class="entities.LopdahocId"/>
+  <mapping class="entities.Lophoc"/>
+  <mapping class="entities.Menu"/>
+  <mapping class="entities.MenuCon"/>
+  <mapping class="entities.NhaCc"/>
+  <mapping class="entities.Nhapkho"/>
+  <mapping class="entities.NhapkhoNb"/>
+  <mapping class="entities.Nhatky"/>
+  <mapping class="entities.NhatkyGv"/>
+  <mapping class="entities.NhatkyHang"/>
+  <mapping class="entities.NhatkyLh"/>
+  <mapping class="entities.Nhom"/>
+  <mapping class="entities.Phieuthu"/>
+  <mapping class="entities.Quanhe"/>
+  <mapping class="entities.QuanheId"/>
+  <mapping class="entities.Quyen"/>
+  <mapping class="entities.Sysdiagrams"/>
+  <mapping class="entities.Thongkelop"/>
+  <mapping class="entities.Tonkho"/>
+  <mapping class="entities.Xuatkho"/>
+  <mapping class="entities.XuatkhoNb"/>
+  <mapping class="entities.Kiemkho"/>
+  
+  <mapping class="entities.ChitietHanghoa"/>
+  <mapping class="entities.ChitietHanghoaId"/>
+  <mapping class="entities.TonghopNxt"/>
+  <mapping class="entities.Nhaplai"/>
+  <mapping class="entities.ChitietNhaplai"/>
+ </session-factory>
+</hibernate-configuration>

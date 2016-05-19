@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+
+	<definition name="body" template="/WEB-INF/views/jsp/home.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/jsp/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/menu.jsp"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/jsp/body.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="registerform" extends="body">
+		<put-attribute name="header" value="/WEB-INF/views/jsp/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/menu.jsp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/registerform.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="thongtintaikhoan" extends="body">
+		<put-attribute name="header" value="/WEB-INF/views/jsp/header.jsp"></put-attribute>
+		<put-attribute name="menu" value="/WEB-INF/views/jsp/menu.jsp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/jsp/thongtintaikhoan.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/jsp/footer.jsp"></put-attribute>
+	</definition>
+
+</tiles-definitions>
